@@ -114,6 +114,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     @objc private func down(sender: UISwipeGestureRecognizer) {
+        if self.lastSwipe == "down" || self.lastSwipe == "up" {
+            return
+        }
         self.lastSwipe = "down"
         let secondView = self.children[0]
             secondView.removeAllActions()
@@ -123,6 +126,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     @objc private func up(sender: UISwipeGestureRecognizer) {
+        if self.lastSwipe == "down" || self.lastSwipe == "up" {
+            return
+        }
         self.lastSwipe = "up"
         let secondView = self.children[0]
             secondView.removeAllActions()
@@ -132,6 +138,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     @objc private func right(sender: UISwipeGestureRecognizer) {
+        if self.lastSwipe == "right" || self.lastSwipe == "left" {
+            return
+        }
         self.lastSwipe = "right"
         let secondView = self.children[0]
             secondView.removeAllActions()
@@ -141,6 +150,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     @objc private func left(sender: UISwipeGestureRecognizer) {
+        if self.lastSwipe == "right" || self.lastSwipe == "left" {
+            return
+        }
         self.lastSwipe = "left"
         let secondView = self.children[0]
             secondView.removeAllActions()
