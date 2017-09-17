@@ -59,14 +59,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         if contact.bodyB.node?.name! == "apple" && contact.bodyA.node?.name! == "Snake" {
             contact.bodyB.node?.removeFromParent()
-            appendAnotherCube()
             randomAppleGenerate()
+            appendAnotherCube()
         }
     }
     
     func appendAnotherCube() {
         if let p = self.spinnyNode?.copy() as! SKShapeNode? {
             self.addChild(p)
+            
             let countArray = positionArrayX.count
             p.position.x = positionArrayX[countArray-1]
             p.position.y = positionArrayY[countArray-1]
@@ -177,6 +178,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     override func update(_ currentTime: TimeInterval) {
+        var time = currentTime * 10
+        
         if positionArrayY.count == 0 {
         } else {
 
