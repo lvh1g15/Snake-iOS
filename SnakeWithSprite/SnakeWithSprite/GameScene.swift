@@ -190,24 +190,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     override func update(_ currentTime: TimeInterval) {
-        var time = currentTime * 10
         
-        if positionArrayY.count == 0 {
-        } else {
-
-            let numberOfNodes = self.children.count
-            let firstCubePosX = self.children[0].position.x
-            let firstCubePosY = self.children[0].position.y
-
-            let newPosishX = sorrr(arr: positionArrayX, insertt: firstCubePosX)
-            let newPosisY = sorrr(arr: positionArrayY, insertt: firstCubePosY)
-            
-            print(newPosisY)
-
-            if numberOfNodes > 2 {
-                for i in 1..<numberOfNodes {
-                    self.children[i].position.x = newPosishX[i-1]
-                    self.children[i].position.y = newPosisY[i-1]
+        if currentTime.truncatingRemainder(dividingBy: 10) == 0 {
+            if positionArrayY.count == 0 {
+                
+            } else {
+                
+                let numberOfNodes = self.children.count
+                let firstCubePosX = self.children[0].position.x
+                let firstCubePosY = self.children[0].position.y
+                
+                let newPosishX = sorrr(arr: positionArrayX, insertt: firstCubePosX)
+                let newPosisY = sorrr(arr: positionArrayY, insertt: firstCubePosY)
+                
+                if numberOfNodes > 2 {
+                    for i in 1..<numberOfNodes {
+                        self.children[i].position.x = newPosishX[i-1]
+                        self.children[i].position.y = newPosisY[i-1]
+                    }
                 }
             }
         }
